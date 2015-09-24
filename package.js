@@ -3,6 +3,7 @@ Package.describe({
   summary: 'Value Objects for i18n domains.',
   name: 'space:vo-i18n',
   version: '0.1.0',
+  git: 'https://github.com/meteor-space/vo-i18n.git'
 });
 
 Package.onUse(function(api) {
