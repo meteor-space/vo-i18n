@@ -23,21 +23,6 @@ describe("Country", function() {
 
   });
 
-  describe('equality', function() {
-
-    it('compares itself to another country instance', function() {
-      var austria = new Country('AT');
-      var germany = new Country('DE');
-      expect(austria.equals(austria)).to.be.true;
-      expect(austria.equals(germany)).to.be.false;
-    });
-
-    it('only accepts other instance of Country', function() {
-      expect(this.austria.equals('AT')).to.be.false;
-    });
-
-  });
-
   describe('country code validation', function() {
 
     it('returns true for any valid country code', function() {

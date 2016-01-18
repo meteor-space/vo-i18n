@@ -23,31 +23,6 @@ describe("Language", function() {
     });
 
   });
-  
-  describe('equality', function() {
-
-    it('s true if language codes are equal', function() {
-      var first = new Language('de');
-      var second = new Language('de');
-      expect(first.equals(second)).to.be.true;
-      expect(second.equals(first)).to.be.true;
-    });
-
-    it('s false if language codes are different', function() {
-      var first = new Language('de');
-      var second = new Language('en');
-      expect(first.equals(second)).to.be.false;
-      expect(second.equals(first)).to.be.false;
-      expect(second.equals(null)).to.be.false;
-      expect(second.equals({})).to.be.false;
-      expect(second.equals(1)).to.be.false;
-    });
-
-    it('only accepts other instances of Language class', function() {
-      expect(this.language.equals(this.code)).to.be.false;
-    });
-
-  });
 
   describe('immutability', function() {
 
