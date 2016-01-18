@@ -13,7 +13,7 @@ Package.onUse(function(api) {
 
   api.use([
     'check',
-    'space:messaging@2.1.0',
+    'ecmascript',
     'space:domain@0.1.0'
   ]);
 
@@ -30,6 +30,7 @@ Package.onUse(function(api) {
 Package.onTest(function(api) {
 
   api.use([
+    'ecmascript',
     'check',
     'ejson',
     'space:vo-i18n',
