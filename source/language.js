@@ -1,6 +1,6 @@
 Language = Space.domain.ValueObject.extend('Language', {
 
-  Constructor: function(language) {
+  Constructor(language) {
 
     // Allow to provide another instance of Language as param
     if(language instanceof Language) {
@@ -25,7 +25,7 @@ Language = Space.domain.ValueObject.extend('Language', {
     };
   },
 
-  toString: function() {
+  toString() {
     return this.code;
   }
 
@@ -35,7 +35,7 @@ Language = Space.domain.ValueObject.extend('Language', {
 Language.type('Language');
 
 Language.ERRORS = {
-  invalidLanguageCode: function(code) {
+  invalidLanguageCode(code) {
     return "Invalid language code '" + code + "' given.";
   }
 };

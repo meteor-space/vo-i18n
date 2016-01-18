@@ -1,6 +1,6 @@
 Country = Space.domain.ValueObject.extend('Country', {
 
-  Constructor: function(country) {
+  Constructor(country) {
 
     // Allow to provide another instance of Country as param
     if(country instanceof Country) {
@@ -25,11 +25,11 @@ Country = Space.domain.ValueObject.extend('Country', {
     };
   },
 
-  isEuropean: function() {
+  isEuropean() {
     return Country.isEuropean(this.code);
   },
 
-  toString: function() {
+  toString() {
     return this.code;
   }
 
@@ -38,7 +38,7 @@ Country = Space.domain.ValueObject.extend('Country', {
 Country.type('Country');
 
 Country.ERRORS = {
-  invalidCountryCode: function(code) {
+  invalidCountryCode(code) {
     return "Invalid country code '" + code + "'";
   }
 };
