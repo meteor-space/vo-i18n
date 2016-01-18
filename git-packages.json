@@ -9,7 +9,7 @@
   },
   "space:domain": {
     "git":"https://github.com/meteor-space/domain.git",
-    "version": "86355d17dcb211e1a5bffb439fea92d99b15f00b"
+    "version": "590e07a1c53917bef877f1bdb39b4068f299f6cb"
   },
   "space:testing": {
     "git":"https://github.com/meteor-space/testing.git",
