@@ -1,4 +1,3 @@
-
 Country = Space.domain.ValueObject.extend('Country', {
 
   Constructor: function(country) {
@@ -19,24 +18,24 @@ Country = Space.domain.ValueObject.extend('Country', {
     Object.freeze(this);
   },
 
+  // Defines the EJSON fields that are automatically serialized
+  fields() {
+    return {
+      code: String
+    };
+  },
+
   isEuropean: function() {
     return Country.isEuropean(this.code);
   },
 
   toString: function() {
     return this.code;
-  },
-
-  equals: function(country) {
-    return (country instanceof Country) && country.code === this.code;
   }
+
 });
 
 Country.type('Country');
-
-Country.fields = {
-  code: String
-};
 
 Country.ERRORS = {
   invalidCountryCode: function(code) {
