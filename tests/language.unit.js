@@ -23,15 +23,7 @@ describe("Language", function() {
     });
 
   });
-
-  describe('serialization', function() {
-
-    it('defines its EJSON type correctly', function() {
-      expect(this.language.toString()).to.equal(this.language.code);
-    });
-
-  });
-
+  
   describe('equality', function() {
 
     it('s true if language codes are equal', function() {

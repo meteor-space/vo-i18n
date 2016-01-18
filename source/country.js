@@ -1,5 +1,5 @@
 
-Country = Space.messaging.Serializable.extend('Country', {
+Country = Space.domain.ValueObject.extend('Country', {
 
   Constructor: function(country) {
 
