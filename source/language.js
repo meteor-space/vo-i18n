@@ -1,19 +1,28 @@
+Language = Space.domain.ValueObject.extend('Language', {
 
-Language = Space.messaging.Serializable.extend('Language', {
+  Constructor: function(language) {
 
-  Constructor: function(data) {
-    var code = (data && data.code) ? data.code : data;
-
-    if(!Language.isValid(code)) {
-      throw new Error(Language.ERRORS.invalidLanguageCode(code));
+    // Allow to provide another instance of Language as param
+    if(language instanceof Language) {
+      // Just use its code
+      language = language.code;
     }
 
-    Space.messaging.Serializable.call(this, { code: code });
+    language = (language && language.code) ? language.code : language;
+
+    if(!Language.isValid(language)) {
+      throw new Error(Language.ERRORS.invalidLanguageCode(language));
+    }
+
+    this.code = language;
     Object.freeze(this);
   },
 
-  equals: function(other) {
-    return (other instanceof Language) && other.code === this.code;
+  // Defines the EJSON fields that are automatically serialized
+  fields() {
+    return {
+      code: String
+    };
   },
 
   toString: function() {
@@ -24,11 +33,6 @@ Language = Space.messaging.Serializable.extend('Language', {
 
 // Register as EJSON type
 Language.type('Language');
-
-// EJSON serializable fields
-Language.fields = {
-  code: String
-};
 
 Language.ERRORS = {
   invalidLanguageCode: function(code) {
