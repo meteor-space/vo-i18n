@@ -31,9 +31,6 @@ Language = Space.domain.ValueObject.extend('Language', {
 
 });
 
-// Register as EJSON type
-Language.type('Language');
-
 Language.ERRORS = {
   invalidLanguageCode(code) {
     return "Invalid language code '" + code + "' given.";

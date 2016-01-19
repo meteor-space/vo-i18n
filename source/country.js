@@ -35,8 +35,6 @@ Country = Space.domain.ValueObject.extend('Country', {
 
 });
 
-Country.type('Country');
-
 Country.ERRORS = {
   invalidCountryCode(code) {
     return "Invalid country code '" + code + "'";
