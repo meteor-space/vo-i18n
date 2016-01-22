@@ -9,7 +9,7 @@ Package.describe({
 
 Package.onUse(function(api) {
 
-  api.versionsFrom('METEOR@1.0');
+  api.versionsFrom('1.2.0.1');
 
   api.use([
     'check',
@@ -35,7 +35,8 @@ Package.onTest(function(api) {
     'ejson',
     'space:vo-i18n',
     'practicalmeteor:munit@2.1.5',
-    'space:testing@2.0.1'
+    'space:testing@3.0.1',
+    'space:testing-messaging@3.0.0'
   ]);
 
   api.addFiles([
