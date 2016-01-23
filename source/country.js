@@ -1,14 +1,9 @@
 Country = Space.domain.ValueObject.extend('Country', {
 
-  Constructor(country) {
+  Constructor(data) {
 
-    // Allow to provide another instance of Country as param
-    if(country instanceof Country) {
-      // Just use its code
-      country = country.code;
-    }
-
-    country = (country && country.code) ? country.code : country;
+    // Allow to provide another object with country attribute as param
+    let country = (data && data.code) ? data.code : data;
 
     if(!Country.isValidCountryCode(country)) {
       throw new Error(Country.ERRORS.invalidCountryCode(country));
@@ -37,7 +32,7 @@ Country = Space.domain.ValueObject.extend('Country', {
 
 Country.ERRORS = {
   invalidCountryCode(code) {
-    return "Invalid country code '" + code + "'";
+    return `Invalid country code '${code}'`;
   }
 };
 

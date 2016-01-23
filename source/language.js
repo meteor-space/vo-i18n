@@ -1,14 +1,9 @@
 Language = Space.domain.ValueObject.extend('Language', {
 
-  Constructor(language) {
+  Constructor(data) {
 
-    // Allow to provide another instance of Language as param
-    if(language instanceof Language) {
-      // Just use its code
-      language = language.code;
-    }
-
-    language = (language && language.code) ? language.code : language;
+    // Allow to provide another object with code attribute as param
+    let language = (data && data.code) ? data.code : data;
 
     if(!Language.isValid(language)) {
       throw new Error(Language.ERRORS.invalidLanguageCode(language));
@@ -33,7 +28,7 @@ Language = Space.domain.ValueObject.extend('Language', {
 
 Language.ERRORS = {
   invalidLanguageCode(code) {
-    return "Invalid language code '" + code + "' given.";
+    return `Invalid language code '${code}' given.`;
   }
 };
 
