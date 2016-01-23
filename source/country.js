@@ -1,15 +1,9 @@
+Country = Space.domain.ValueObject.extend('Country', {
 
-Country = Space.messaging.Serializable.extend('Country', {
+  Constructor(data) {
 
-  Constructor: function(country) {
-
-    // Allow to provide another instance of Country as param
-    if(country instanceof Country) {
-      // Just use its code
-      country = country.code;
-    }
-
-    country = (country && country.code) ? country.code : country;
+    // Allow to provide another object with country attribute as param
+    let country = (data && data.code) ? data.code : data;
 
     if(!Country.isValidCountryCode(country)) {
       throw new Error(Country.ERRORS.invalidCountryCode(country));
@@ -19,28 +13,26 @@ Country = Space.messaging.Serializable.extend('Country', {
     Object.freeze(this);
   },
 
-  isEuropean: function() {
+  // Defines the EJSON fields that are automatically serialized
+  fields() {
+    return {
+      code: String
+    };
+  },
+
+  isEuropean() {
     return Country.isEuropean(this.code);
   },
 
-  toString: function() {
+  toString() {
     return this.code;
-  },
-
-  equals: function(country) {
-    return (country instanceof Country) && country.code === this.code;
   }
+
 });
 
-Country.type('Country');
-
-Country.fields = {
-  code: String
-};
-
 Country.ERRORS = {
-  invalidCountryCode: function(code) {
-    return "Invalid country code '" + code + "'";
+  invalidCountryCode(code) {
+    return `Invalid country code '${code}'`;
   }
 };
 

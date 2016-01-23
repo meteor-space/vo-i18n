@@ -9,16 +9,17 @@ Package.describe({
 
 Package.onUse(function(api) {
 
-  api.versionsFrom('METEOR@1.0');
+  api.versionsFrom('1.2.0.1');
 
   api.use([
     'check',
-    'space:messaging@2.0.0'
+    'ecmascript',
+    'space:domain@0.1.0'
   ]);
 
-  api.add_files([
+  api.addFiles([
     'source/language.js',
-    'source/country.js',
+    'source/country.js'
   ]);
 
   api.export('Language');
@@ -29,16 +30,18 @@ Package.onUse(function(api) {
 Package.onTest(function(api) {
 
   api.use([
+    'ecmascript',
     'check',
     'ejson',
     'space:vo-i18n',
     'practicalmeteor:munit@2.1.5',
-    'space:testing@1.3.0',
+    'space:testing@3.0.1',
+    'space:testing-messaging@3.0.0'
   ]);
 
-  api.add_files([
+  api.addFiles([
     'tests/language.unit.js',
-    'tests/country.unit.js',
+    'tests/country.unit.js'
   ]);
 
 });
